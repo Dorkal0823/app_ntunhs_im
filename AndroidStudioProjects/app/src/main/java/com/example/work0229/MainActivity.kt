@@ -14,6 +14,7 @@ import java.util.Random
 class MainActivity : AppCompatActivity() {
     val TAG:String = MainActivity::class.java.simpleName
     private lateinit var handler: Handler
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,10 +30,7 @@ class MainActivity : AppCompatActivity() {
             {Toast.makeText(this,"5秒後的操作執行了！",Toast.LENGTH_SHORT).show()
             },5000)
 
-    override fun onDestroy() {
-        super.onDestroy()
-        handler.removeCallbacksAndMessages(null)
-        }
+
 
         guess_button.setOnClickListener {
             TextView.text = editText.text
@@ -49,5 +47,9 @@ class MainActivity : AppCompatActivity() {
             secret = Random().nextInt(10) + 1
             TextView.text = "再猜一次"
         }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
     }
 }
