@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +20,14 @@ class MainActivity : AppCompatActivity() {
         btn_ChangeActivity.setOnClickListener{
             var bundle = Bundle()
             var name = edt_Name.text.toString()
-            bundle.putString("name",name)
-            var seconIntent = Intent(this, SecondActivity::class.java)
-            seconIntent.putExtra("key",bundle)
-            startActivity(seconIntent)
+            if (name.isEmpty()){
+                Toast.makeText(this, "請輸入名字", Toast.LENGTH_SHORT).show()
+            }else{
+                bundle.putString("name",name)
+                var seconIntent = Intent(this, SecondActivity::class.java)
+                seconIntent.putExtra("key",bundle)
+                startActivity(seconIntent)
+            }
         }
 
         btn_OpenBrowser.setOnClickListener{
