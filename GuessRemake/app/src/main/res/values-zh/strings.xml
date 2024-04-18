@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Guess_Game">猜數字</string>
+    <string name="reset">清空</string>
+    <string name="guess">猜</string>
+    <string name="app_name" />
+</resources>
